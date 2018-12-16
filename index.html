@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<title>Cheatsheet Git</title>
+	</head>
+	<body>
+	
+<h1> CHEAT SHEET SUR GIT</h1><br>
+
+<h2> Configurer Git</h2>
+
+<p>
+Après avoir installer Git, configurer son nom et son e-mail, <b>dans cette ordre</b> :
+</p>
+
+<p>
+<code>$ git config --global user.name "MonPrénom MonNom"</code>
+</p>
+
+<p>
+<code>$ git config --global user.email "Mon E-mail"</code>
+</p>
+
+
+<p>
+À partir de maintenant mes "commit" indiqueront par qui (et son e-mail) ils ont été fait.
+</p>
+
+<h2> Initialiser un projet</h2>
+
+<p>
+Commencer par se placer dans le dossier du projet et puis faire  
+</p>
+
+<p>
+<code>$ git init</code>
+</p>
+  
+<p>
+Ce qui va créer un dossier caché (.git) avec tout ce dont GIT a besoin pour gérer le projet.
+</p>
+
+<h2> Rejoindre un projet existant</h2>
+
+<p>
+<code>$ git clone &#60URL du dépôt&#62</code>  &#60= Télécharge un projet complet et son historique de versions
+</p>
+
+
+<p>
+<code>$ git remote add &#60ma branche&#62 git@github.com:&#60user&#62/&#60nom du projet&#62.git</code>	&#60= Ici, on ajoute une connexion vers le "remote"
+</p>
+
+<h2> Travailler avec Git</h2>
+
+<p>
+Définition d'un "add" =&#62 mise à l'index  
+</p>
+
+<p>
+À chaque modification/ajout/suppression de code et/ou fichier/dossier, il faudra faire un "add" et un "commit".
+</p>
+
+<p>
+<code>$ git add page.html style.css</code>			&#60= ici 2 fichiers d'un coup ;)
+</p>
+
+<p>
+<code>$ git commit -m "Mon commentaire"</code>		&#60= Enregistre un instantané de fichier(s) de façon permanente dans l'historique des versions
+</p>
+
+<p>
+<code>$ git status</code>					 &#60= Liste tous les nouveaux fichiers ainsi que ceux qui ont étés modifiés à "commiter"
+</p>
+
+<p>
+<code>$ git diff</code>					&#60= Affiche tous les changements depuis le dernier "git add"
+</p>
+
+<p>
+<code>$ git diff&#60fichier&#62</code>				&#60= Affiche les changements d'1 fichier en particulier (ici &#60fichier&#62) depuis le dernier "git add"
+</p>
+
+<p>
+<code>$ git reset &#60fichier&#62</code>				&#60= Enlève le fichier de l'index, mais conserve son contenu !
+</p>
+
+<p>
+<code>$ git show</code>					&#60= Affiche les modifications de métadonnées et de contenu inclues lors du dernier commit
+</p>
+
+* Sur un dépôt distant
+
+<p>
+<code>$ git remote</code>					&#60= Liste les serveurs distants que vous avez enregistrés
+</p>
+
+<p>
+<code>$ git remote -v</code>					&#60= Affiche l’URL que Git a stockée pour chaque nom court
+</p>
+
+<p>
+<code>$ git remote show &#60nom distant&#62</code>			&#60= Affiche les infos sur un dépôt distant
+</p>
+
+<p>
+<code>$ git ls-remote</code>					&#60= Liste les empreintes de toutes les branches
+</p>
+
+* Apporter des changements au projet
+
+<p>
+<code>$ git rm &#60fichier&#62</code>				&#60= Supprime le fichier du répertoire de travail & met à jour l'index
+</p>
+
+<p>
+<code>$ git rm --cached &#60fichier&#62</code>			&#60= Supprime le fichier du système de suivi de version mais le préserve localement
+</p>
+
+<p>
+<code>$ git mv &#60fichier&#62 &#60fichier_nouveau_nom&#62</code>	&#60= Renomme le fichier et prépare le changement pour un commit
+</p>
+
+<h2> Annuler un "add"</h2>
+
+<p>
+<code>$ git reset &#60fichier&#62</code>
+</p>
+
+<h2> Annuler un "commit"</h2>
+
+<p>
+<code>$ git reset HEAD</code>			 &#60= Annule le dernier commit
+</p>
+
+<p>
+<code>$ git reset HEAD^</code>			&#60= Annule l'avant dernier commit
+</p>
+
+<p>
+<code>$ git reset d6d98923868578a7f38dea79833b56d0326fcba1</code>		&#60= Annule un commit dont l'empreinte est "d6..."
+</p>
+
+<p>
+<code>$ git reset d6d98923</code>			&#60= Version courte de la précédente ;)
+</p>
+
+<h2> Basculer/switcher vers un commit ou une branche</h2>
+
+<p>
+<code>$ git checkout &#60nom de la branche&#62</code>
+</p>
+
+<p>
+<code>$ git checkout &#60empreinte du commit&#62</code>
+</p>
+
+<h2> Lister les commits</h2>
+
+<p>
+Affche les x derniers commits :  <code>$ git log -n x</code>
+</p>
+
+<h2> Refaire des commits</h2>
+
+<p>
+<code>$ git reset &#60commit&#62</code>			&#60= Annule tous les commits après &#60commit&#62 en conservant les modifications
+</p>
+
+<p>
+<code>$ git reset --hard &#60commit&#62</code>		&#60= Supprime tout l'historique et les modifications effectuées après le &#60commit&#62 spécifié
+</p>
+
+<h2> Les branches</h2>
+
+<h3> Créer une branche</h3>
+
+* Avec 2 lignes : créer et basculer sur la nouvelle branche
+
+<p>
+<code>$ git branch &#60nom de ma nouvelle branche&#62</code>
+</p>
+
+<p>
+<code>$ git checkout &#60nom de ma nouvelle branche&#62</code>
+</p>
+
+* Avec 1 seule ligne : créer et basculer
+
+<p>
+<code>$ git checkout -b &#60nom de ma nouvelle branche&#62</code>
+</p>
+
+<h3> Supprimer une branche</h3>
+
+* Si la branche est local et n'est pas créée sur le repo distant
+
+<p>
+<code>$ git branch -d &#60nom de la branche locale&#62</code>
+</p>
+
+* Si la branche est présente sur le repo distant
+
+<p>
+<code>$ git push origin --delete &#60nom de la branche distante&#62</code>
+</p>
+
+<h3> Lister les branches</h3>
+
+<p>
+<code>$ git branch</code>		&#60= local
+</p>
+
+<p>
+<code>$ git branch -a</code>		&#60= local + distant
+</p>
+
+<h3> Vérifier l'historique des versions</h3>
+
+<p>
+<code>$ git diff &#60première_branche&#62 ... &#60deuxième_branche&#62</code>	&#60= Montre les différences de contenu entre 2 branches
+</p>
+
+<p>
+<code>$ git diff show &#60commit&#62</code>		&#60= Montre les modifications des métadonnées et de contenu inclues dans le commit spécifié
+</p>
+
+<h3> Fusionner les branches</h3>
+
+<p>
+<code>$ git merge &#60nomde la branche&#62</code>	&#60= Combine/fusionne dans la branche courante l'historique de la branche spécifiée
+</p>
+
+<b>Pour faire  ce qui suit, il faut avoir créé un nouveau repository sur github et avoir configuré son compte avec sa clé SSH !!</b>
+
+<h3> Synchroniser les changements</h3>
+
+<p>
+<code>$ git fetch &#60nom du dépôt&#62</code>			&#60= Récupère tout l'historique du dépôt nommé
+</p>
+
+<p>
+<code>$ git merge &#60nom du dépôt&#62/&#60branche&#62</code>		&#60= Fusionne la branche du dépôt dans la branche locale courante
+</p>
+
+<p>
+<code>$ git push &#60alias&#62 &#60branche&#62</code>			&#60= Envoie tous les commits de la branche locale vers GitHub
+</p>
+
+<p>
+<code>$ git pull</code>					&#60= Récupère tout l'historique du dépôt nommé et incorpore les modifications
+</p>
+
+<p>
+<code>$ git push -u origin &#60ma branche&#62</code>		&#60= Ici, on met à jour le "remote" en poussant la branche &#60ma branche&#62
+</p>
+
+<h3> Envoyer un projet vers le gestionnaire de projets (Github)</h3>
+
+<p>
+S'assurer qu'on soit enregistré avant ;)  
+</p>
+
+<p>
+Envoyer ses commits vers le dépôt distant :  
+</p>
+
+<code>$ git push -u origin &#60nomde la branche&#62</code>
+
+<h3> Récupérer un projet</h3>
+
+<p>
+Mettre à jour le dépôt local : 
+</p>
+
+<code>$ git pull</code>	&#60= On récupère que les infos des modifications ! 
+
+<h2> INFOS COMPLÉMENTAIRES</h2>
+
+<h3> git pull ou git fetch ? </h3> 
+
+<p>
+Les commandes git pull et git fetch sont toutes les deux utilisées pour mettre à jour un répertoire de travail local avec les données d'un repository distant.  
+</p>
+<p>
+Elles n'ont cependant pas le même fonctionnement.  
+</p>
+
+<p>
+La commande <b>git fetch</b> va récupérer toutes les données des commits effectués sur la branche courante qui n'existent pas encore dans votre version en local. Ces données seront stockées dans le répertoire de travail local mais ne seront pas fusionnées avec votre branche locale. Si vous souhaitez fusionner ces données pour que votre branche soit à jour, vous devez utiliser ensuite la commande git merge.
+</p>
+
+<p>
+La commande <b>git pull</b> est en fait la commande qui regroupe les commandes git fetch suivie de git merge. Cette commande télécharge les données des commits qui n'ont pas encore été récupérées dans votre branche locale puis fusionne ensuite ces données.
+</p>
+
+<p>
+Le choix de la commande à utiliser dépend de la façon dont vous souhaitez travailler. La commande git pull automatise la mise à jour des données mais peut entraîner de nombreux conflits si vous avez modifié beaucoup de fichiers. Utiliser la commande git fetch permet de garder son répertoire de travail à jour et de contrôler le moment où l'on souhaite fusionner les données.
+</p>
+
+<h3> rebase </h3> 
+
+<p>
+La commande rebase remplace la base d'une branche par une nouvelle.  
+Lors de la création d'une branche, sa base est celle du master à instant T. Lors d'un rebase, sa base est remplacer par celle du master à un instant T + 1.  
+</p>
+<p>
+Pourquoi ? Parce que à "l'instant T+1" la base master à changé ! Une branche (ou plus) autre(s) que la mienne a été mergé sur master.  
+Ce qui permet d'actualiser ma branche avec les modifications apportées par les autres sur la branche master.
+</p>
+</body>
+</html>
